@@ -11,6 +11,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/three@0.168.0/build/three.min.js"></script>
 
     <title>Voice Patches Consulting -- Where every speech counts</title>
 </head>
@@ -62,9 +63,9 @@
                             style="font-size:1.1em;vertical-align:middle;margin-right:4px;">verified</span>
                         Certified Care
                     </div>
-                    <h1 class="hero-title text-gradient">Rediscover Your <br><span class="highlight">Voice</span></h1>
-                    <p class="hero-subtext">Personalized, evidence-based programs to support communication and
-                        confidence for children and adults. Specialized care for trauma recovery.</p>
+                    <h1 class="hero-title text-gradient">Voicepatches Consult</h1>
+                    <p class="hero-subtext">We render Speech and Behavioral therapy services for Children and Adults
+                        with Autism, Apraxia, Aphasia, Dysarthria, Articulation disorder and phonological disorder.</p>
 
                     <div class="hero-ctas">
                         <a class="btn cta" href="#contact">Start Your Journey <span
@@ -125,10 +126,11 @@
             <div class="container split">
                 <div class="about-text">
                     <div class="inline-pill hero-badge">Clinical Excellence</div>
-                    <h3 id="about-heading">Finding Your Voice <span class="text-primary">Again</span></h3>
-                    <p>We specialize in empathetic, science-backed speech therapy for trauma recovery, selective mutism,
-                        and articulation challenges. Our mission is to restore not just speech, but the confidence to be
-                        heard.</p>
+                    <h3 id="about-heading">Friendly Approach & <span class="text-primary">Positive Motivation</span>
+                    </h3>
+                    <p>Voicepatches Consult has been Consistent and has been delivering top-notch services to both
+                        Children and Adults. It's unique with a Friendly approach and Positive Motivation in dealing
+                        with Clients.</p>
                     <p>Whether navigating aphasia after a stroke or finding courage through selective mutism, our
                         personalized pathways combine neurological exercises with psychological support to rebuild
                         communication bridges.</p>
@@ -211,7 +213,8 @@
 
                 <div class="services-grid"
                     style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:2rem;">
-                    <!-- Card 1 -->
+
+                    <!-- 1. Object Naming -->
                     <div class="service-card card reveal-on-scroll"
                         style="padding:0; overflow:hidden; border:none; transition-delay:0.1s;">
                         <div class="card-visual"
@@ -228,42 +231,19 @@
                         <div style="padding:1.5rem;">
                             <div style="color:var(--accent); margin-bottom:0.5rem;"><span
                                     class="material-symbols-outlined">psychology_alt</span></div>
-                            <h4>Post-Trauma Recovery</h4>
-                            <p class="muted">Regaining speech after neurological trauma or aphasia through targeted
-                                neuroplasticity exercises.</p>
+                            <h4>Object Naming</h4>
+                            <p class="muted">Practice associating words with objects (e.g., holding an apple and saying
+                                "apple").</p>
                         </div>
                     </div>
 
-                    <!-- Card 2 -->
+                    <!-- 2. Breathing Techniques -->
                     <div class="service-card card reveal-on-scroll"
                         style="padding:0; overflow:hidden; border:none; transition-delay:0.2s;">
                         <div class="card-visual"
                             style="height:200px; background:linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); display:flex; align-items:center; justify-content:center; position:relative;">
                             <span class="material-symbols-outlined"
-                                style="font-size:6rem; color:rgba(0,0,0,0.05);">spa</span>
-                            <button class="play-btn" data-animation="mirror"
-                                style="position:absolute; bottom:1rem; right:1rem; width:48px; height:48px; border-radius:50%; padding:0; display:flex; align-items:center; justify-content:center; box-shadow:0 44px 12px rgba(0,0,0,0.1);">
-                                <span class="material-symbols-outlined">play_arrow</span>
-                            </button>
-                            <div class="canvas-spot" data-for="mirror"
-                                style="position:absolute; inset:0; background:transparent;"></div>
-                        </div>
-                        <div style="padding:1.5rem;">
-                            <div style="color:var(--accent); margin-bottom:0.5rem;"><span
-                                    class="material-symbols-outlined">spa</span></div>
-                            <h4>Selective Mutism</h4>
-                            <p class="muted">Gentle, low-pressure strategies to help you find your voice comfortably in
-                                anxious environments.</p>
-                        </div>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="service-card card reveal-on-scroll"
-                        style="padding:0; overflow:hidden; border:none; transition-delay:0.3s;">
-                        <div class="card-visual"
-                            style="height:200px; background:linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); display:flex; align-items:center; justify-content:center; position:relative;">
-                            <span class="material-symbols-outlined"
-                                style="font-size:6rem; color:rgba(0,0,0,0.05);">water_drop</span>
+                                style="font-size:6rem; color:rgba(0,0,0,0.05);">air</span>
                             <button class="play-btn" data-animation="breathing"
                                 style="position:absolute; bottom:1rem; right:1rem; width:48px; height:48px; border-radius:50%; padding:0; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
                                 <span class="material-symbols-outlined">play_arrow</span>
@@ -273,20 +253,66 @@
                         </div>
                         <div style="padding:1.5rem;">
                             <div style="color:var(--accent); margin-bottom:0.5rem;"><span
-                                    class="material-symbols-outlined">graphic_eq</span></div>
-                            <h4>Stuttering &amp; Fluency</h4>
-                            <p class="muted">Techniques for smooth, confident rhythmic speech patterns and breathing
-                                control.</p>
+                                    class="material-symbols-outlined">lungs</span></div>
+                            <h4>Breathing Techniques</h4>
+                            <p class="muted">Diaphragm and lung control exercises with synchronized inhalation and
+                                exhalation.</p>
                         </div>
                     </div>
 
-                    <!-- Card 4 -->
+                    <!-- 3. Tongue Twisters -->
+                    <div class="service-card card reveal-on-scroll"
+                        style="padding:0; overflow:hidden; border:none; transition-delay:0.3s;">
+                        <div class="card-visual"
+                            style="height:200px; background:linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); display:flex; align-items:center; justify-content:center; position:relative;">
+                            <span class="material-symbols-outlined"
+                                style="font-size:6rem; color:rgba(0,0,0,0.05);">graphic_eq</span>
+                            <button class="play-btn" data-animation="tongue-twisters"
+                                style="position:absolute; bottom:1rem; right:1rem; width:48px; height:48px; border-radius:50%; padding:0; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+                                <span class="material-symbols-outlined">play_arrow</span>
+                            </button>
+                            <div class="canvas-spot" data-for="tongue-twisters"
+                                style="position:absolute; inset:0; background:transparent;"></div>
+                        </div>
+                        <div style="padding:1.5rem;">
+                            <div style="color:var(--accent); margin-bottom:0.5rem;"><span
+                                    class="material-symbols-outlined">record_voice_over</span></div>
+                            <h4>Tongue Twisters</h4>
+                            <p class="muted">Rapid articulation practice with exaggerated mouth movements for clarity.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 4. Facial Expressions -->
                     <div class="service-card card reveal-on-scroll"
                         style="padding:0; overflow:hidden; border:none; transition-delay:0.4s;">
                         <div class="card-visual"
                             style="height:200px; background:linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); display:flex; align-items:center; justify-content:center; position:relative;">
                             <span class="material-symbols-outlined"
-                                style="font-size:6rem; color:rgba(0,0,0,0.05);">record_voice_over</span>
+                                style="font-size:6rem; color:rgba(0,0,0,0.05);">mood</span>
+                            <button class="play-btn" data-animation="facial-expressions"
+                                style="position:absolute; bottom:1rem; right:1rem; width:48px; height:48px; border-radius:50%; padding:0; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+                                <span class="material-symbols-outlined">play_arrow</span>
+                            </button>
+                            <div class="canvas-spot" data-for="facial-expressions"
+                                style="position:absolute; inset:0; background:transparent;"></div>
+                        </div>
+                        <div style="padding:1.5rem;">
+                            <div style="color:var(--accent); margin-bottom:0.5rem;"><span
+                                    class="material-symbols-outlined">face_3</span></div>
+                            <h4>Facial Expressions</h4>
+                            <p class="muted">Emotional articulation therapy involving face shifting while pronouncing
+                                emotive words.</p>
+                        </div>
+                    </div>
+
+                    <!-- 5. Mirror Therapy -->
+                    <div class="service-card card reveal-on-scroll"
+                        style="padding:0; overflow:hidden; border:none; transition-delay:0.5s;">
+                        <div class="card-visual"
+                            style="height:200px; background:linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); display:flex; align-items:center; justify-content:center; position:relative;">
+                            <span class="material-symbols-outlined"
+                                style="font-size:6rem; color:rgba(0,0,0,0.05);">width_full</span>
                             <button class="play-btn" data-animation="mirror"
                                 style="position:absolute; bottom:1rem; right:1rem; width:48px; height:48px; border-radius:50%; padding:0; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
                                 <span class="material-symbols-outlined">play_arrow</span>
@@ -296,16 +322,39 @@
                         </div>
                         <div style="padding:1.5rem;">
                             <div style="color:var(--accent); margin-bottom:0.5rem;"><span
-                                    class="material-symbols-outlined">mic</span></div>
-                            <h4>Articulation Clarity</h4>
-                            <p class="muted">Precision training for clear, effective communication and enunciation
-                                improvement.</p>
+                                    class="material-symbols-outlined">compare</span></div>
+                            <h4>Mirror Therapy</h4>
+                            <p class="muted">Side-by-side lip and tongue views for visual feedback and self-correction.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 6. Tongue Exercises -->
+                    <div class="service-card card reveal-on-scroll"
+                        style="padding:0; overflow:hidden; border:none; transition-delay:0.6s;">
+                        <div class="card-visual"
+                            style="height:200px; background:linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); display:flex; align-items:center; justify-content:center; position:relative;">
+                            <span class="material-symbols-outlined"
+                                style="font-size:6rem; color:rgba(0,0,0,0.05);">gesture</span>
+                            <button class="play-btn" data-animation="tongue-exercises"
+                                style="position:absolute; bottom:1rem; right:1rem; width:48px; height:48px; border-radius:50%; padding:0; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+                                <span class="material-symbols-outlined">play_arrow</span>
+                            </button>
+                            <div class="canvas-spot" data-for="tongue-exercises"
+                                style="position:absolute; inset:0; background:transparent;"></div>
+                        </div>
+                        <div style="padding:1.5rem;">
+                            <div style="color:var(--accent); margin-bottom:0.5rem;"><span
+                                    class="material-symbols-outlined">loop</span></div>
+                            <h4>Tongue Exercises</h4>
+                            <p class="muted">Specific movements like circling or touching teeth to build oral motor
+                                strength.</p>
                         </div>
                     </div>
                 </div>
 
                 <div style="display:flex;justify-content:center;margin-top:3rem;" class="reveal-on-scroll">
-                    <button class="btn cta" style="padding: 1rem 2rem;">View Full Interactive Demo</button>
+                    <a class="btn cta" href="#contact" style="padding: 1rem 2rem;">Book a Consultation</a>
                 </div>
             </div>
         </section>

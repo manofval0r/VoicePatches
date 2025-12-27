@@ -14,21 +14,20 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.reveal-on-scroll').forEach(el => revealObserver.observe(el));
 });
 
-// Utility: inject Three.js dynamically (only once)
-let threeLoaded = false;
-let loadingThree = null;
-function loadThree() {
-    if (threeLoaded) return Promise.resolve();
-    if (loadingThree) return loadingThree;
-
-    loadingThree = new Promise((resolve, reject) => {
-        const s = document.createElement('script');
-        s.src = 'https://cdn.jsdelivr.net/npm/three@0.168.0/build/three.min.js';
-        s.onload = () => { threeLoaded = true; resolve(); };
-        s.onerror = () => reject(new Error('Failed to load Three.js'));
-        document.head.appendChild(s);
+// Utility: Check if Three.js is loaded
+function ensureThree() {
+    if (window.THREE) return Promise.resolve();
+    return new Promise((resolve, reject) => {
+        // Wait a bit in case it's still parsing
+        if (window.THREE) resolve();
+        else {
+            // Fallback retry
+            setTimeout(() => {
+                if (window.THREE) resolve();
+                else reject(new Error('Three.js not loaded'));
+            }, 1000);
+        }
     });
-    return loadingThree;
 }
 
 // High-level helper to create short, low-cost scenes with cleanup
@@ -37,7 +36,7 @@ function createScene(container, setupFn, duration = 5000) {
     if (!container) return;
     if (prefersReducedMotion) { showFallback(container); return Promise.resolve(); }
 
-    return loadThree().then(() => {
+    return ensureThree().then(() => {
         try {
             const width = container.clientWidth || 200;
             const height = container.clientHeight || 120;
@@ -99,9 +98,13 @@ function createScene(container, setupFn, duration = 5000) {
 
             return { stop: () => { if (timeout) clearTimeout(timeout); cleanup(); } };
         } catch (err) {
+            console.error("Three.js Scene Error:", err);
             showFallback(container);
         }
-    }).catch(() => showFallback(container));
+    }).catch((e) => {
+        console.error("Three.js Load/Promise Error:", e);
+        showFallback(container);
+    });
 }
 
 // Object Naming scene: therapist passes an apple to client; subtle airflow bubble at the end
@@ -220,6 +223,147 @@ function createMirrorScene(container) {
     }, 5200);
 }
 
+// Tongue Twisters: Letters flying out of a mouth location
+function createTongueTwisterScene(container) {
+    return createScene(container, (scene) => {
+        const mouthGeo = new THREE.TorusGeometry(0.5, 0.05, 16, 32, Math.PI);
+        const mouthMat = new THREE.MeshStandardMaterial({ color: 0xFF3B30, roughness: 0.5 });
+        const mouth = new THREE.Mesh(mouthGeo, mouthMat);
+        mouth.rotation.x = Math.PI;
+        mouth.position.y = -0.2;
+        scene.add(mouth);
+
+        // Letters pool
+        const letters = [];
+        const letterGeo = new THREE.BoxGeometry(0.15, 0.15, 0.02);
+        const letterMat = new THREE.MeshStandardMaterial({ color: 0x0A84FF });
+
+        function spawnLetter() {
+            const l = new THREE.Mesh(letterGeo, letterMat);
+            l.position.set((Math.random() - 0.5) * 0.2, 0, 0);
+            l.userData = {
+                vel: new THREE.Vector3((Math.random() - 0.5) * 2, 1 + Math.random(), 0),
+                rot: Math.random() * 0.2
+            };
+            scene.add(l);
+            letters.push(l);
+        }
+
+        let time = 0;
+        function update(t) {
+            time += 0.016;
+            // Spawn letters rapidly
+            if (t > 0.5 && Math.random() < 0.15) spawnLetter();
+
+            // Animate mouth
+            mouth.scale.y = 1 + Math.sin(t * 15) * 0.3;
+
+            // Update letters
+            for (let i = letters.length - 1; i >= 0; i--) {
+                const l = letters[i];
+                l.position.addScaledVector(l.userData.vel, 0.016);
+                l.rotation.z += l.userData.rot;
+                if (l.position.y > 3 || Math.abs(l.position.x) > 3) {
+                    scene.remove(l);
+                    letters.splice(i, 1);
+                }
+            }
+        }
+
+        function dispose() {
+            mouthGeo.dispose(); mouthMat.dispose(); letterGeo.dispose(); letterMat.dispose();
+        }
+
+        return { update, dispose };
+    }, 5200);
+}
+
+// Facial Expressions: Abstract face shifting emotions
+function createFacialExpressionScene(container) {
+    return createScene(container, (scene) => {
+        const headGeo = new THREE.SphereGeometry(1.2, 32, 32);
+        const headMat = new THREE.MeshStandardMaterial({ color: 0xFFFFFF, transparent: true, opacity: 0.9, roughness: 0.2 });
+        const head = new THREE.Mesh(headGeo, headMat);
+        scene.add(head);
+
+        // Eyes
+        const eyeGeo = new THREE.SphereGeometry(0.12, 16, 16);
+        const eyeMat = new THREE.MeshStandardMaterial({ color: 0x1C1C1E });
+        const leftEye = new THREE.Mesh(eyeGeo, eyeMat);
+        const rightEye = new THREE.Mesh(eyeGeo, eyeMat);
+        leftEye.position.set(-0.4, 0.2, 1.05);
+        rightEye.position.set(0.4, 0.2, 1.05);
+        scene.add(leftEye, rightEye);
+
+        // Mouth (Torus segment)
+        const mouthGeo = new THREE.TorusGeometry(0.3, 0.04, 16, 32, Math.PI);
+        const mouthMat = new THREE.MeshStandardMaterial({ color: 0x1C1C1E });
+        const mouth = new THREE.Mesh(mouthGeo, mouthMat);
+        mouth.position.set(0, -0.3, 1.1);
+        scene.add(mouth);
+
+        function update(t) {
+            // Cycle emotions: 0-2s Neutral, 2-4s Happy, 4-6s Sad
+            const cycle = t % 6;
+
+            if (cycle < 2) {
+                // Neutral
+                mouth.rotation.z = 0;
+                mouth.scale.set(1, 0.2, 1); // flat line
+            } else if (cycle < 4) {
+                // Happy
+                mouth.rotation.z = Math.PI; // Smile up
+                mouth.scale.set(1, 1, 1);
+            } else {
+                // Sad/Concerned
+                mouth.rotation.z = 0; // Frown down
+                mouth.scale.set(1, 1, 1);
+            }
+
+            // Subtle head float
+            head.rotation.y = Math.sin(t * 0.5) * 0.1;
+        }
+
+        function dispose() {
+            headGeo.dispose(); headMat.dispose(); eyeGeo.dispose(); eyeMat.dispose(); mouthGeo.dispose(); mouthMat.dispose();
+        }
+
+        return { update, dispose };
+    }, 6000);
+}
+
+// Tongue Exercises: Tongue model doing specific movements
+function createTongueExerciseScene(container) {
+    return createScene(container, (scene) => {
+        // Mouth frame (cylinder)
+        const frameGeo = new THREE.CylinderGeometry(1.2, 1.2, 0.5, 32, 1, true);
+        const frameMat = new THREE.MeshBasicMaterial({ color: 0xcccccc, wireframe: true, transparent: true, opacity: 0.3 });
+        const frame = new THREE.Mesh(frameGeo, frameMat);
+        frame.rotation.x = Math.PI / 2;
+        scene.add(frame);
+
+        // Tongue (Capsule-like)
+        const tongueGeo = new THREE.CapsuleGeometry(0.3, 0.8, 4, 8);
+        const tongueMat = new THREE.MeshStandardMaterial({ color: 0xFF3B30, roughness: 0.4 });
+        const tongue = new THREE.Mesh(tongueGeo, tongueMat);
+        scene.add(tongue);
+
+        function update(t) {
+            // Circle movement
+            const angle = t * 3;
+            tongue.position.x = Math.cos(angle) * 0.4;
+            tongue.position.y = Math.sin(angle) * 0.4;
+            tongue.rotation.z = angle + Math.PI / 2;
+        }
+
+        function dispose() {
+            frameGeo.dispose(); frameMat.dispose(); tongueGeo.dispose(); tongueMat.dispose();
+        }
+
+        return { update, dispose };
+    }, 5200);
+}
+
 function showFallback(container) {
     container.innerHTML = '';
     const el = document.createElement('div');
@@ -246,29 +390,43 @@ document.addEventListener('click', (e) => {
     const spot = document.querySelector(`.canvas-spot[data-for="${animation}"]`);
     if (!spot) return;
 
+    // Prevent double clicks
+    if (btn.disabled) return;
+
+    // UI Feedback: Don't change text, just spin icon
+    const icon = btn.querySelector('.material-symbols-outlined');
+    const originalIcon = icon.textContent;
+    icon.textContent = 'hourglass_empty'; // Loading/Playing state
     btn.disabled = true;
-    const original = btn.textContent;
-    btn.textContent = 'Playing...';
 
     const map = {
         'object-naming': createObjectNamingScene,
         'breathing': createBreathingScene,
-        'mirror': createMirrorScene
+        'mirror': createMirrorScene,
+        'tongue-twisters': createTongueTwisterScene,
+        'facial-expressions': createFacialExpressionScene,
+        'tongue-exercises': createTongueExerciseScene
     };
     const createFn = map[animation] || ((c) => createScene(c, null, 5200));
 
-    // Start the scene and keep reference for stopping
+    // Stop previous if running
+    if (activeSceneRunner && typeof activeSceneRunner.stop === 'function') {
+        activeSceneRunner.stop();
+        activeSceneRunner = null;
+    }
+
+    // Start the scene
     createFn(spot).then(r => { activeSceneRunner = r; }).catch(() => { /* ignore */ });
 
-    // Re-enable button after duration and stop scene
+    // Restore button after duration
     setTimeout(() => {
-        btn.textContent = original;
+        icon.textContent = 'play_arrow'; // Reset to play
         btn.disabled = false;
         if (activeSceneRunner && typeof activeSceneRunner.stop === 'function') {
             activeSceneRunner.stop();
         }
         activeSceneRunner = null;
-    }, 5400);
+    }, 5400); // 5.4s duration
 });
 
 // Typing effect for elements with class .type-in (trigger when visible)
@@ -379,7 +537,7 @@ function createHeroScene(container) {
     if (!container) return Promise.resolve();
     container.innerHTML = '';
 
-    return loadThree().then(() => {
+    return ensureThree().then(() => {
         const width = container.clientWidth;
         const height = container.clientHeight;
         const scene = new THREE.Scene();
