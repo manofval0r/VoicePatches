@@ -86,26 +86,32 @@
                     </div>
                 </div>
 
-                <div class="hero-visual-card reveal-on-scroll" style="transition-delay:0.2s;">
+                <div class="hero-visual-card reveal-on-scroll" style="transition-delay:0.2s; ">
                     <div class="visual-canvas" id="hero-scene"></div>
 
                     <!-- Floating Cards -->
                     <div class="float-card animate-float"
-                        style="position:absolute; bottom:10%; left:-20px; background:var(--surface-glass); backdrop-filter:blur(12px); padding:1rem; border-radius:16px; box-shadow:var(--shadow-md); display:flex; align-items:center; gap:1rem; border:1px solid rgba(255,255,255,0.2);">
+                        style="position:absolute; bottom:10%; left:50px; background:var(--surface-glass); backdrop-filter:blur(12px); padding:1rem; border-radius:16px; box-shadow:var(--shadow-md); display:flex; align-items:center; gap:1rem; border:1px solid rgba(255,255,255,0.2);">
                         <div
                             style="width:48px; height:48px; background:#E0F8E3; color:#34C759; border-radius:50%; display:flex; align-items:center; justify-content:center;">
                             <span class="material-symbols-outlined">mood</span>
                         </div>
                         <div>
                             <div
-                                style="font-size:0.75rem; text-transform:uppercase; color:var(--muted); font-weight:700;">
+                                style="font-size:0.75rem; text-transform:uppercase; color:var(--muted); font-weight:700; ;">
                                 Success Rate</div>
                             <div style="font-size:1.1rem; font-weight:800;">94% Improved</div>
                         </div>
                     </div>
+                    
+                    <!-- Hero Testimonial-->
+                    <div class="hero-testimonial reveal-on-scroll">
+                        <span class="quote-icon">“</span>
+                        <p>Voicepatches Consult has been consistent, delivering top-notch services to both children and adults.</p>
+                    </div>
 
                     <div class="float-card animate-float-delay"
-                        style="position:absolute; top:15%; right:-20px; background:var(--surface-glass); backdrop-filter:blur(12px); padding:0.8rem 1.2rem; border-radius:999px; box-shadow:var(--shadow-md); border:1px solid rgba(255,255,255,0.2);">
+                        style="position:absolute; top:15%; right:10px; background:var(--surface-glass); backdrop-filter:blur(12px); padding:0.8rem 1.2rem; border-radius:999px; box-shadow:var(--shadow-md); border:1px solid rgba(255,255,255,0.2);">
                         <div style="display:flex; align-items:center; gap:0.5rem;">
                             <div style="display:flex; margin-left:10px;">
                                 <span
@@ -492,7 +498,7 @@
         </section>
 
         <section id="contact" class="contact section" aria-labelledby="contact-heading">
-            <div class="container contact-grid">
+            <div class="container contact-grid"></div>
                 <div class="contact-form-wrap">
                     <h3 id="contact-heading">Let's Find Your Voice Together.</h3>
                     <p class="muted">Whether you have questions about our therapy plans or just want to say hello, we
@@ -518,33 +524,22 @@
                     </form>
                 </div>
                 <aside class="contact-info">
-                    <div class="map-card">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.7882603438125!2d3.385682774410225!3d6.548397793444602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8d72434a5169%3A0xd2b8d66d7617e8dc!2sDomino&#39;s%20Pizza%20Gbagada!5e0!3m2!1sen!2sng!4v1766845605890!5m2!1sen!2sng"
-                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        <div class="map-pin">
-                            <strong>Main Clinic</strong>
-                            <div>Woice Patches Consulting<br />Gbagada, Lagos</div>
-                        </div>
-                    </div>
                     <div class="info-cards">
-                        <a href="mailto:hello@speechtherapy.com" class="info-card">
+                        <a href="mailto:hello@speechtherapy.com" class="info-card card">
                             <div class="icon">✉️</div>
                             <div>
                                 <p class="muted">Email Us</p>
                                 <p class="strong">hello@speechtherapy.com</p>
                             </div>
                         </a>
-                        <a href="tel:+2347037000448" class="info-card">
+                        <a href="tel:+2347037000448" class="info-card card">
                             <div class="icon">📞</div>
                             <div>
                                 <p class="muted">Call Us</p>
                                 <p class="strong">+234-XXX-XXXXXX</p>
                             </div>
                         </a>
-                        <div class="info-card">
-                            <div class="icon">⏰</div>
+                        <div class="info-card card">
                             <div>
                                 <p class="muted">Clinic Hours</p>
                                 <p class="strong">Mon–Fri 9:00AM–6:00PM</p>
@@ -553,6 +548,56 @@
                     </div>
                 </aside>
             </div>
+        </section>
+        <section id="location" class="location section" aria-labelledby="location-heading">
+            <div class="container">
+                <div style="text-align:center;max-width:800px;margin:0 auto; margin-bottom:2rem;" class="reveal-on-scroll">
+                    <span class="inline-pill">Visit Us</span>
+                    <h3 id="location-heading" style="font-size:2rem;margin-top:0.5rem;">Our Main Clinic</h3>
+                    <p class="muted">Stop by our welcoming clinic space in Gbagada, Lagos. We're here to support your journey to clear communication.</p>
+                </div>
+
+                <div class="location-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:stretch;">
+                    <div class="map-card reveal-on-scroll">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.7882603438125!2d3.385682774410225!3d6.548397793444602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8d72434a5169%3A0xd2b8d66d7617e8dc!2sDomino&#39;s%20Pizza%20Gbagada!5e0!3m2!1sen!2sng!4v1766845605890!5m2!1sen!2sng"
+                            width="100%" height="100%" style="border:0;border-radius:16px;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade" title="Voice Patches Consulting location map"></iframe>
+                    </div>
+
+                    <div class="location-info reveal-on-scroll" style="display:flex;flex-direction:column;justify-content:center;">
+                        <div class="info-card card" style="margin-bottom:1.5rem;">
+                            <div style="color:var(--accent);margin-bottom:0.75rem;"><span class="material-symbols-outlined">location_on</span></div>
+                            <h4 style="margin:0 0 0.5rem 0;">Main Clinic</h4>
+                            <p class="muted" style="margin:0;">Voice Patches Consulting<br />Gbagada, Lagos</p>
+                        </div>
+
+                        <div class="info-card card" style="margin-bottom:1.5rem;">
+                            <div style="color:var(--accent);margin-bottom:0.75rem;"><span class="material-symbols-outlined">schedule</span></div>
+                            <h4 style="margin:0 0 0.5rem 0;">Hours</h4>
+                            <p class="muted" style="margin:0;">Mon–Fri: 9:00 AM – 6:00 PM<br />Sat: 10:00 AM – 2:00 PM</p>
+                        </div>
+
+                        <div class="info-card card">
+                            <div style="color:var(--accent);margin-bottom:0.75rem;"><span class="material-symbols-outlined">directions</span></div>
+                            <h4 style="margin:0 0 0.5rem 0;">Get Directions</h4>
+                            <a class="btn btn-outline" href="https://maps.google.com/?q=Voice+Patches+Consulting+Gbagada+Lagos" target="_blank" style="display:inline-block;margin-top:0.5rem;">Open in Maps</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                @media (max-width: 768px) {
+                    .location-grid {
+                        grid-template-columns: 1fr !important;
+                    }
+
+                    .map-card {
+                        min-height: 350px;
+                    }
+                }
+            </style>
         </section>
     </main>
 
