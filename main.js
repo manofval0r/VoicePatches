@@ -423,6 +423,61 @@ if (themeBtn) {
 }
 if (localStorage.getItem('vp-theme') === 'dark') document.documentElement.classList.add('dark');
 
+// MOBILE MENU TOGGLE & SCROLL-AWARE HEADER
+(function() {
+    const mobileToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const headerEl = document.getElementById('siteHeader');
+    if (mobileToggle && mobileMenu) {
+        mobileToggle.addEventListener('click', () => {
+            const open = mobileToggle.getAttribute('aria-expanded') === 'true';
+            mobileToggle.setAttribute('aria-expanded', String(!open));
+            mobileMenu.classList.toggle('open');
+            mobileToggle.classList.toggle('open');
+            document.documentElement.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+            mobileToggle.classList.remove('open');
+            mobileToggle.setAttribute('aria-expanded','false');
+            document.documentElement.style.overflow = '';
+        }));
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+                mobileMenu.classList.remove('open');
+                mobileToggle.classList.remove('open');
+                mobileToggle.setAttribute('aria-expanded','false');
+                document.documentElement.style.overflow = '';
+            }
+        });
+
+        // Ensure menu closes if resizing to desktop width
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 900 && mobileMenu.classList.contains('open')) {
+                mobileMenu.classList.remove('open');
+                mobileToggle.classList.remove('open');
+                mobileToggle.setAttribute('aria-expanded','false');
+                document.documentElement.style.overflow = '';
+            }
+        });
+    }
+
+    // scroll-aware header: hide on scroll down, show on scroll up
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+        const current = window.scrollY;
+        if (!headerEl) return;
+        if (current > lastScroll && current > 80) {
+            headerEl.classList.add('hidden');
+        } else {
+            headerEl.classList.remove('hidden');
+        }
+        lastScroll = current;
+    }, { passive: true });
+})();
+
 // For cursor trail
 const cursor = document.createElement('div');
 cursor.className = 'custom-cursor';
