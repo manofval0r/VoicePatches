@@ -3,6 +3,7 @@
     --bg: #FCF9F1; 
     --surface: #FFFFFF;
     --surface-glass: rgba(255, 255, 255, 0.7);
+    --mobile-menu:rgba(255, 255, 255, 0.9);
     --text: #1A1A1E;
     --muted: #636366;
     
@@ -23,6 +24,7 @@
     --bg: #000000;
     --surface: #1C1C1E;
     --surface-glass: rgba(28, 28, 30, 0.75);
+    --mobile-menu:rgba(45, 42, 42, 0.6);
     --text: #F5F5F7;
     --muted: #98989D;
     --accent: #FF453A;
@@ -267,7 +269,10 @@ a {
     position: fixed;
     left: 0;
     right: 0;
-    top: 0;
+    top: 0; 
+    background-color: var(--mobile-menu);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     transform: translateY(-120%);
     transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
     z-index: 1050;
@@ -330,8 +335,8 @@ a {
     .main-nav { display: none; }
     .header-actions { display: none; }
     .mobile-menu-toggle { display: inline-flex; }
-    .site-header { top: 8px; }
-    .header-inner { position: relative; }
+    .site-header { top: 8px; right: 18px; }
+    .header-inner { position: relative; font-size: 10px;}
     /* position hamburger left and avoid overlap with brand */
     .mobile-menu-toggle { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); z-index: 1101; padding: 8px; }
     .brand-row { margin-left: 56px; }
