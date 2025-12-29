@@ -359,32 +359,47 @@ document.addEventListener('click', (e) => {
     const btn = e.target.closest('.play-btn');
     if (!btn) return;
 
-    // 1. Get the card and the icon
     const card = btn.closest('.service-card');
     const icon = btn.querySelector('.material-symbols-outlined');
+    const type = btn.dataset.animation;
+    const insightText = card.querySelector('.insight-text');
 
-    // 2. Toggle "Playing" State
     if (card.classList.contains('playing')) {
-        card.classList.remove('playing');
-        icon.textContent = 'play_arrow';
+        stopAllAnimations();
     } else {
-        // Stop any other playing card first
-        document.querySelectorAll('.service-card').forEach(c => {
-            c.classList.remove('playing');
-            const otherBtn = c.querySelector('.play-btn .material-symbols-outlined');
-            if(otherBtn) otherBtn.textContent = 'play_arrow';
-        });
-
+        stopAllAnimations();
         card.classList.add('playing');
-        icon.textContent = 'stop'; // Change icon to stop
+        icon.textContent = 'close';
         
-        // Optional: Auto-stop after 6 seconds
-        setTimeout(() => {
-            card.classList.remove('playing');
-            icon.textContent = 'play_arrow';
-        }, 6000);
+        // --- INSIGHT LOGIC ---
+        if (type === 'breathing') {
+            runBreathingCycle(insightText);
+        } else if (type === 'object-naming') {
+            insightText.textContent = "Insight: Associating visual stimuli with phonemes builds neural pathways.";
+        } else if (type === 'tongue-exercises') {
+            insightText.textContent = "Insight: Strengthening the tongue tip improves 't', 'd', and 'l' clarity.";
+        }
     }
 });
+
+function stopAllAnimations() {
+    document.querySelectorAll('.service-card').forEach(c => {
+        c.classList.remove('playing');
+        const btnIcon = c.querySelector('.play-btn .material-symbols-outlined');
+        if (btnIcon) btnIcon.textContent = 'play_arrow';
+    });
+}
+
+function runBreathingCycle(el) {
+    let phases = ["Inhale deeply...", "Hold for 2s...", "Exhale slowly..."];
+    let i = 0;
+    el.textContent = phases[0];
+    const timer = setInterval(() => {
+        i++;
+        if (i < phases.length) el.textContent = phases[i];
+        else clearInterval(timer);
+    }, 2000);
+}
 
 function showFallback(container) {
     container.innerHTML = '<div class="fallback-blob"></div>';

@@ -18,6 +18,15 @@
 </head>
 
 <body>
+    <svg class="gooey-filter" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+        </filter>
+    </defs>
+</svg>
     <header class="site-header glass-nav" role="banner">
         <div class="container header-inner">
             <div class="brand-row" style="display:flex;align-items:center;gap:1rem;">
@@ -229,6 +238,9 @@
                             <span class="material-symbols-outlined"
                                 style="font-size:6rem; color:rgba(0,0,0,0.05);">psychology</span>
                             <div class="visual-container" data-animation="object-naming">
+                                <div class="insight-overlay">
+                                    <span class="insight-text">Therapist Tip: Try to pronounce as much as you can, no matter how bad. The A from A-P-P-L-E is a start all the same.</span>
+                                </div>
     <div class="naming-box">
         <span class="material-symbols-outlined icon-main" style="font-size: 4rem; color: var(--accent);">apple</span>
         <div class="typing-text">A-P-P-L-E</div>
@@ -257,6 +269,9 @@
                             <span class="material-symbols-outlined"
                                 style="font-size:6rem; color:rgba(0,0,0,0.05);">air</span>
                             <div class="visual-container" data-animation="breathing">
+                                <div class="insight-overlay">
+        <span class="insight-text">Therapist Tip: Keep shoulders relaxed while the ball expands.</span>
+    </div>
     <div class="breath-ring"></div>
     <div class="breath-ball"></div>
     <p class="breath-label" style="position:absolute; bottom:10px; font-size:0.7rem; font-weight:800; opacity:0.5;">BREATHE</p>
@@ -284,6 +299,9 @@
                             <span class="material-symbols-outlined"
                                 style="font-size:6rem; color:rgba(0,0,0,0.05);">graphic_eq</span>
                             <div class="visual-container" data-animation="tongue-twisters">
+                                <div class="insight-overlay">
+                                    <span class="insight-text">Therapist Tip: Start slowly, work on your speed, it takes a while, but it gets all easyy</span>
+                                </div>
     <div class="word-cloud" style="display:flex; gap:10px;">
         <span class="jumble">She</span>
         <span class="jumble">Sells</span>
@@ -313,6 +331,9 @@
                             <span class="material-symbols-outlined"
                                 style="font-size:6rem; color:rgba(0,0,0,0.05);">mood</span>
                             <div class="visual-container" data-animation="facial-expressions">
+                                <div class="insight-overlay">
+                                    <span class="insight-text">Therapist Tip: Start with a smile 🙂</span>
+                                </div>
     <div class="face-box">
         <!-- We use two icons that toggle when "playing" -->
         <span class="material-symbols-outlined face-icon" id="face-neutral">sentiment_neutral</span>
@@ -340,6 +361,9 @@
                         <div class="card-visual" style="height:200px; background:linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); display:flex; align-items:center; justify-content:center; position:relative;">
                             <span class="material-symbols-outlined" style="font-size:6rem; color:rgba(0,0,0,0.05);">width_full</span>
                             <div class="visual-container" data-animation="mirror">
+                                <div class="insight-overlay">
+                                    <span class="insight-text">Therapist Tip: Look into the mirror, start and fix. </span>
+                                </div>
     <div class="mirror-wrap" style="display:flex; gap:40px; align-items:center;">
         <span class="material-symbols-outlined" style="font-size:3rem; transform: scaleX(-1);">face</span>
         <div style="width:2px; height:50px; background:var(--accent); opacity:0.3;"></div>
@@ -373,6 +397,9 @@
                                 <span class="material-symbols-outlined">play_arrow</span>
                             </button>
                             <div class="visual-container" data-animation="tongue-exercises">
+                                <div class="insight-overlay">
+                                    <span class="insight-text">Therapist Tip: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus, exercitationem.</span>
+                                </div>
     <div class="sound-wave">
         <div class="bar"></div>
         <div class="bar"></div>
