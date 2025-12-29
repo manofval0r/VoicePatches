@@ -304,6 +304,24 @@ function createTongueTwisterScene(container) {
     });
 }
 
+// Interactive NAV
+window.onscroll = function() {
+    const nav = document.querySelector('.glass-nav');
+    if (window.scrollY > 50) {
+        nav.style.padding = "10px 0";
+        nav.style.width = "90%";
+        nav.style.left = "5%";
+        nav.style.top = "20px";
+        nav.style.borderRadius = "50px";
+    } else {
+        nav.style.padding = "20px 0";
+        nav.style.width = "100%";
+        nav.style.left = "0";
+        nav.style.top = "0";
+        nav.style.borderRadius = "0";
+    }
+};
+
 // 5. HERO SCENE (PARTICLE SYSTEM)
 function createHeroScene(container) {
     const width = container.clientWidth;
@@ -341,32 +359,30 @@ document.addEventListener('click', (e) => {
     const btn = e.target.closest('.play-btn');
     if (!btn) return;
 
-    const type = btn.dataset.animation;
-    const spot = document.querySelector(`.canvas-spot[data-for="${type}"]`);
+    // 1. Get the card and the icon
+    const card = btn.closest('.service-card');
     const icon = btn.querySelector('.material-symbols-outlined');
 
-    if (activeScene) activeScene.stop();
-    
-    btn.disabled = true;
-    icon.textContent = 'motion_photos_on';
-
-    const map = {
-        'object-naming': createObjectNamingScene,
-        'breathing': createBreathingScene,
-        'mirror': createMirrorScene,
-        'tongue-twisters': createTongueTwisterScene,
-        'facial-expressions': createFacialExpressionScene,
-        'tongue-exercises': createTongueExerciseScene
-    };
-
-    if (map[type]) {
-        map[type](spot).then(runner => {
-            activeScene = runner;
-            setTimeout(() => {
-                icon.textContent = 'play_arrow';
-                btn.disabled = false;
-            }, 5200);
+    // 2. Toggle "Playing" State
+    if (card.classList.contains('playing')) {
+        card.classList.remove('playing');
+        icon.textContent = 'play_arrow';
+    } else {
+        // Stop any other playing card first
+        document.querySelectorAll('.service-card').forEach(c => {
+            c.classList.remove('playing');
+            const otherBtn = c.querySelector('.play-btn .material-symbols-outlined');
+            if(otherBtn) otherBtn.textContent = 'play_arrow';
         });
+
+        card.classList.add('playing');
+        icon.textContent = 'stop'; // Change icon to stop
+        
+        // Optional: Auto-stop after 6 seconds
+        setTimeout(() => {
+            card.classList.remove('playing');
+            icon.textContent = 'play_arrow';
+        }, 6000);
     }
 });
 
@@ -391,3 +407,13 @@ if (themeBtn) {
     });
 }
 if (localStorage.getItem('vp-theme') === 'dark') document.documentElement.classList.add('dark');
+
+// For cursor trail
+const cursor = document.createElement('div');
+cursor.className = 'custom-cursor';
+document.body.appendChild(cursor);
+
+document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+});

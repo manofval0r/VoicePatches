@@ -12,6 +12,7 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/three@0.168.0/build/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
 
     <title>Voice Patches Consulting -- Where every speech counts</title>
 </head>
@@ -227,12 +228,17 @@
                             style="height:200px; background:linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); display:flex; align-items:center; justify-content:center; position:relative;">
                             <span class="material-symbols-outlined"
                                 style="font-size:6rem; color:rgba(0,0,0,0.05);">psychology</span>
+                            <div class="visual-container" data-animation="object-naming">
+    <div class="naming-box">
+        <span class="material-symbols-outlined icon-main" style="font-size: 4rem; color: var(--accent);">apple</span>
+        <div class="typing-text">A-P-P-L-E</div>
+    </div>
+    <div class="canvas-spot" data-for="object-naming" style="position:absolute; inset:0; background:transparent;"></div>
+</div>
                             <button class="play-btn" data-animation="object-naming"
                                 style="position:absolute; bottom:1rem; right:1rem; width:48px; height:48px; border-radius:50%; padding:0; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
                                 <span class="material-symbols-outlined">play_arrow</span>
                             </button>
-                            <div class="canvas-spot" data-for="object-naming"
-                                style="position:absolute; inset:0; background:transparent;"></div>
                         </div>
                         <div style="padding:1.5rem;">
                             <div style="color:var(--accent); margin-bottom:0.5rem;"><span
@@ -250,12 +256,16 @@
                             style="height:200px; background:linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); display:flex; align-items:center; justify-content:center; position:relative;">
                             <span class="material-symbols-outlined"
                                 style="font-size:6rem; color:rgba(0,0,0,0.05);">air</span>
+                            <div class="visual-container" data-animation="breathing">
+    <div class="breath-ring"></div>
+    <div class="breath-ball"></div>
+    <p class="breath-label" style="position:absolute; bottom:10px; font-size:0.7rem; font-weight:800; opacity:0.5;">BREATHE</p>
+    <div class="canvas-spot" data-for="breathing" style="position:absolute; inset:0; background:transparent;"></div>
+</div>
                             <button class="play-btn" data-animation="breathing"
                                 style="position:absolute; bottom:1rem; right:1rem; width:48px; height:48px; border-radius:50%; padding:0; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
                                 <span class="material-symbols-outlined">play_arrow</span>
                             </button>
-                            <div class="canvas-spot" data-for="breathing"
-                                style="position:absolute; inset:0; background:transparent;"></div>
                         </div>
                         <div style="padding:1.5rem;">
                             <div style="color:var(--accent); margin-bottom:0.5rem;"><span
@@ -273,12 +283,18 @@
                             style="height:200px; background:linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); display:flex; align-items:center; justify-content:center; position:relative;">
                             <span class="material-symbols-outlined"
                                 style="font-size:6rem; color:rgba(0,0,0,0.05);">graphic_eq</span>
+                            <div class="visual-container" data-animation="tongue-twisters">
+    <div class="word-cloud" style="display:flex; gap:10px;">
+        <span class="jumble">She</span>
+        <span class="jumble">Sells</span>
+        <span class="jumble">Seashells</span>
+    </div>
+    <div class="canvas-spot" data-for="tongue-twisters" style="position:absolute; inset:0; background:transparent;"></div>
+</div>
                             <button class="play-btn" data-animation="tongue-twisters"
                                 style="position:absolute; bottom:1rem; right:1rem; width:48px; height:48px; border-radius:50%; padding:0; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
                                 <span class="material-symbols-outlined">play_arrow</span>
                             </button>
-                            <div class="canvas-spot" data-for="tongue-twisters"
-                                style="position:absolute; inset:0; background:transparent;"></div>
                         </div>
                         <div style="padding:1.5rem;">
                             <div style="color:var(--accent); margin-bottom:0.5rem;"><span
@@ -296,12 +312,18 @@
                             style="height:200px; background:linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); display:flex; align-items:center; justify-content:center; position:relative;">
                             <span class="material-symbols-outlined"
                                 style="font-size:6rem; color:rgba(0,0,0,0.05);">mood</span>
+                            <div class="visual-container" data-animation="facial-expressions">
+    <div class="face-box">
+        <!-- We use two icons that toggle when "playing" -->
+        <span class="material-symbols-outlined face-icon" id="face-neutral">sentiment_neutral</span>
+        <span class="material-symbols-outlined face-icon" id="face-happy" style="display:none; color:var(--yellow);">sentiment_very_satisfied</span>
+    </div>
+    <div class="canvas-spot" data-for="facial-expressions" style="position:absolute; inset:0; background:transparent;"></div>
+</div>
                             <button class="play-btn" data-animation="facial-expressions"
                                 style="position:absolute; bottom:1rem; right:1rem; width:48px; height:48px; border-radius:50%; padding:0; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
                                 <span class="material-symbols-outlined">play_arrow</span>
                             </button>
-                            <div class="canvas-spot" data-for="facial-expressions"
-                                style="position:absolute; inset:0; background:transparent;"></div>
                         </div>
                         <div style="padding:1.5rem;">
                             <div style="color:var(--accent); margin-bottom:0.5rem;"><span
@@ -315,16 +337,20 @@
                     <!-- 5. Mirror Therapy -->
                     <div class="service-card card reveal-on-scroll"
                         style="padding:0; overflow:hidden; border:none; transition-delay:0.5s;">
-                        <div class="card-visual"
-                            style="height:200px; background:linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); display:flex; align-items:center; justify-content:center; position:relative;">
-                            <span class="material-symbols-outlined"
-                                style="font-size:6rem; color:rgba(0,0,0,0.05);">width_full</span>
+                        <div class="card-visual" style="height:200px; background:linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); display:flex; align-items:center; justify-content:center; position:relative;">
+                            <span class="material-symbols-outlined" style="font-size:6rem; color:rgba(0,0,0,0.05);">width_full</span>
+                            <div class="visual-container" data-animation="mirror">
+    <div class="mirror-wrap" style="display:flex; gap:40px; align-items:center;">
+        <span class="material-symbols-outlined" style="font-size:3rem; transform: scaleX(-1);">face</span>
+        <div style="width:2px; height:50px; background:var(--accent); opacity:0.3;"></div>
+        <span class="material-symbols-outlined" style="font-size:3rem;">face</span>
+    </div>
+    <div class="canvas-spot" data-for="mirror" style="position:absolute; inset:0; background:transparent;"></div>
+</div>
                             <button class="play-btn" data-animation="mirror"
                                 style="position:absolute; bottom:1rem; right:1rem; width:48px; height:48px; border-radius:50%; padding:0; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
                                 <span class="material-symbols-outlined">play_arrow</span>
                             </button>
-                            <div class="canvas-spot" data-for="mirror"
-                                style="position:absolute; inset:0; background:transparent;"></div>
                         </div>
                         <div style="padding:1.5rem;">
                             <div style="color:var(--accent); margin-bottom:0.5rem;"><span
@@ -346,8 +372,15 @@
                                 style="position:absolute; bottom:1rem; right:1rem; width:48px; height:48px; border-radius:50%; padding:0; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
                                 <span class="material-symbols-outlined">play_arrow</span>
                             </button>
-                            <div class="canvas-spot" data-for="tongue-exercises"
-                                style="position:absolute; inset:0; background:transparent;"></div>
+                            <div class="visual-container" data-animation="tongue-exercises">
+    <div class="sound-wave">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar" style="height:30px"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+</div>
                         </div>
                         <div style="padding:1.5rem;">
                             <div style="color:var(--accent); margin-bottom:0.5rem;"><span

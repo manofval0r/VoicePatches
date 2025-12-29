@@ -52,6 +52,20 @@ body {
     opacity: 0.9;
 }
 
+/* Custom Cursor */
+.custom-cursor {
+    width: 20px;
+    height: 20px;
+    background: var(--yellow);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: multiply;
+    transition: transform 0.1s ease;
+    opacity: 0.3;
+}
+
 h1,
 h2,
 h3,
@@ -83,6 +97,7 @@ a {
     border-radius: 999px; /* Pill shape */
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .dark .glass-nav {
@@ -533,6 +548,85 @@ a {
 .service-card:nth-child(1), 
 .service-card:nth-child(4) {
     grid-column: span 2;
+}
+
+/* Container Basics */
+.visual-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 1. Object Naming Animation */
+.naming-box { opacity: 0; transform: scale(0.5); transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.playing .naming-box { opacity: 1; transform: scale(1.2); }
+.typing-text {
+    font-weight: 800;
+    color: var(--accent);
+    margin-top: 10px;
+    letter-spacing: 2px;
+}
+
+/* 2. Breathing Animation (The "Expansion") */
+.breath-ball {
+    width: 40px;
+    height: 40px;
+    background: var(--accent);
+    border-radius: 50%;
+    transition: transform 3s ease-in-out;
+}
+.breath-ring {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--yellow);
+    border-radius: 50%;
+    opacity: 0;
+}
+.playing .breath-ball { transform: scale(3); }
+.playing .breath-ring { animation: pulse-ring 3s infinite; }
+
+@keyframes pulse-ring {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(2.5); opacity: 0; }
+}
+
+/* 3. Tongue Twister (The Jumble) */
+.jumble { 
+    display: inline-block; 
+    transition: all 0.4s; 
+    filter: blur(5px); 
+    transform: translateY(10px); 
+}
+.playing .jumble { 
+    filter: blur(0); 
+    transform: translateY(0); 
+    color: var(--accent);
+}
+.playing .jumble:nth-child(2) { transition-delay: 0.2s; }
+.playing .jumble:nth-child(3) { transition-delay: 0.4s; }
+
+/* 4. Tongue Exercises (Soundwave) */
+.sound-wave { display: flex; gap: 4px; align-items: center; height: 40px; }
+.bar { 
+    width: 6px; 
+    height: 10px; 
+    background: var(--accent); 
+    border-radius: 3px; 
+}
+.playing .bar { animation: wave 0.6s infinite ease-in-out alternate; }
+.playing .bar:nth-child(2) { animation-delay: 0.1s; }
+.playing .bar:nth-child(3) { animation-delay: 0.2s; }
+.playing .bar:nth-child(4) { animation-delay: 0.3s; }
+
+@keyframes wave {
+    from { height: 10px; opacity: 0.5; }
+    to { height: 40px; opacity: 1; }
 }
 
 @media (max-width: 960px) {
