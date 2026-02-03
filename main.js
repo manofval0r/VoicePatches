@@ -121,158 +121,10 @@ function createScene(container, setupFn, duration = 5200) {
     });
 }
 
-// 4. ANATOMICAL EXERCISE MODELS
+// 4. ANATOMICAL EXERCISE MODELS - REMOVED
+// All 3D models have been replaced with professional AI-generated medical illustrations
+// for better performance, accessibility, and visual consistency across devices.
 
-// Object Naming: A Realistic Apple
-function createObjectNamingScene(container) {
-    return createScene(container, (scene) => {
-        const appleGroup = new THREE.Group();
-        const bodyGeo = new THREE.IcosahedronGeometry(0.8, 3);
-        const bodyMat = new THREE.MeshStandardMaterial({ color: 0xFF3B30, roughness: 0.4 });
-        const body = new THREE.Mesh(bodyGeo, bodyMat);
-        body.scale.set(1, 0.85, 1);
-
-        const stemGeo = new THREE.CylinderGeometry(0.04, 0.02, 0.4);
-        const stemMat = new THREE.MeshStandardMaterial({ color: 0x5D4037 });
-        const stem = new THREE.Mesh(stemGeo, stemMat);
-        stem.position.y = 0.75;
-        
-        appleGroup.add(body, stem);
-        scene.add(appleGroup);
-
-        return {
-            update: (t) => {
-                appleGroup.rotation.y = t * 1.5;
-                appleGroup.position.x = Math.sin(t) * 0.5;
-                appleGroup.position.y = Math.cos(t * 2) * 0.2;
-            },
-            dispose: () => { bodyGeo.dispose(); stemGeo.dispose(); }
-        };
-    });
-}
-
-// Breathing: Expanding Lungs
-function createBreathingScene(container) {
-    return createScene(container, (scene) => {
-        const lungs = new THREE.Group();
-        const lungGeo = new THREE.CapsuleGeometry(0.4, 0.8, 4, 16);
-        const lungMat = new THREE.MeshStandardMaterial({ color: 0xFFD23F, roughness: 0.6 });
-        
-        const left = new THREE.Mesh(lungGeo, lungMat);
-        left.position.x = -0.45;
-        left.rotation.z = 0.15;
-        
-        const right = new THREE.Mesh(lungGeo, lungMat);
-        right.position.x = 0.45;
-        right.rotation.z = -0.15;
-        
-        lungs.add(left, right);
-        scene.add(lungs);
-
-        return {
-            update: (t) => {
-                const scale = 1 + Math.sin(t * 2) * 0.2;
-                lungs.scale.set(scale, scale, scale);
-                left.rotation.z = 0.15 + (scale - 1) * 0.5;
-                right.rotation.z = -0.15 - (scale - 1) * 0.5;
-            },
-            dispose: () => lungGeo.dispose()
-        };
-    });
-}
-
-// Tongue Exercises: Anatomical Mouth & Tongue
-function createTongueExerciseScene(container) {
-    return createScene(container, (scene) => {
-        const lipGeo = new THREE.TorusGeometry(0.8, 0.08, 12, 48);
-        const lipMat = new THREE.MeshStandardMaterial({ color: 0xffffff });
-        const lips = new THREE.Mesh(lipGeo, lipMat);
-        lips.rotation.x = Math.PI / 2.2;
-        scene.add(lips);
-
-        const tongueGeo = new THREE.CapsuleGeometry(0.25, 0.6, 8, 16);
-        const tongueMat = new THREE.MeshStandardMaterial({ color: 0xE33B2E });
-        const tongue = new THREE.Mesh(tongueGeo, tongueMat);
-        tongue.rotation.x = Math.PI / 2;
-        scene.add(tongue);
-
-        return {
-            update: (t) => {
-                tongue.position.x = Math.sin(t * 4) * 0.5;
-                tongue.rotation.z = Math.sin(t * 4) * 0.3;
-                tongue.position.z = Math.cos(t * 2) * 0.2;
-            },
-            dispose: () => { lipGeo.dispose(); tongueGeo.dispose(); }
-        };
-    });
-}
-
-// Mirror Therapy: Synchronized Mouths
-function createMirrorScene(container) {
-    return createScene(container, (scene, camera) => {
-        camera.position.z = 4;
-        const mouthGroup = new THREE.Group();
-        const geo = new THREE.TorusGeometry(0.4, 0.05, 12, 32, Math.PI);
-        const mat = new THREE.MeshStandardMaterial({ color: 0xffffff });
-        
-        const createMouth = (x) => {
-            const g = new THREE.Group();
-            const top = new THREE.Mesh(geo, mat);
-            const bottom = new THREE.Mesh(geo, mat);
-            bottom.rotation.z = Math.PI;
-            g.add(top, bottom);
-            g.position.x = x;
-            return { g, top, bottom };
-        };
-
-        const left = createMouth(-0.8);
-        const right = createMouth(0.8);
-        scene.add(left.g, right.g);
-
-        return {
-            update: (t) => {
-                const open = Math.abs(Math.sin(t * 3)) * 0.4;
-                left.top.position.y = open;
-                left.bottom.position.y = -open;
-                right.top.position.y = open;
-                right.bottom.position.y = -open;
-            },
-            dispose: () => geo.dispose()
-        };
-    });
-}
-
-// Facial Expressions: Smiling Face
-function createFacialExpressionScene(container) {
-    return createScene(container, (scene) => {
-        const headGeo = new THREE.SphereGeometry(1, 32, 32);
-        const headMat = new THREE.MeshStandardMaterial({ color: 0xFFD23F, roughness: 0.3 });
-        const head = new THREE.Mesh(headGeo, headMat);
-        scene.add(head);
-
-        const eyeGeo = new THREE.SphereGeometry(0.1, 12, 12);
-        const eyeMat = new THREE.MeshStandardMaterial({ color: 0x1a1a1a });
-        const lEye = new THREE.Mesh(eyeGeo, eyeMat);
-        lEye.position.set(-0.3, 0.3, 0.9);
-        const rEye = lEye.clone();
-        rEye.position.x = 0.3;
-        scene.add(lEye, rEye);
-
-        const smileGeo = new THREE.TorusGeometry(0.4, 0.04, 12, 32, Math.PI);
-        const smile = new THREE.Mesh(smileGeo, eyeMat);
-        smile.position.set(0, -0.2, 0.9);
-        smile.rotation.z = Math.PI;
-        scene.add(smile);
-
-        return {
-            update: (t) => {
-                head.rotation.y = Math.sin(t) * 0.5;
-                smile.scale.x = 1 + Math.sin(t * 2) * 0.2;
-            },
-            dispose: () => { headGeo.dispose(); eyeGeo.dispose(); smileGeo.dispose(); }
-        };
-    });
-}
 
 // Tongue Twisters: Flying Phonemes
 function createTongueTwisterScene(container) {
@@ -464,15 +316,28 @@ if (localStorage.getItem('vp-theme') === 'dark') document.documentElement.classL
         });
     }
 
+    // Navbar blur microinteraction on scroll
+    const navElement = document.querySelector('.glass-nav');
+    let scrollThreshold = 50;
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > scrollThreshold) {
+            navElement?.classList.add('scrolled');
+        } else {
+            navElement?.classList.remove('scrolled');
+        }
+    }, { passive: true });
+
     // scroll-aware header: hide on scroll down, show on scroll up
     let lastScroll = 0;
+    const headerElement = document.querySelector('.site-header');
     window.addEventListener('scroll', () => {
         const current = window.scrollY;
-        if (!headerEl) return;
-        if (current > lastScroll && current > 80) {
-            headerEl.classList.add('hidden');
+        if (!headerElement) return;
+        if (current > lastScroll && current > 120) {
+            headerElement.classList.add('hidden');
         } else {
-            headerEl.classList.remove('hidden');
+            headerElement.classList.remove('hidden');
         }
         lastScroll = current;
     }, { passive: true });

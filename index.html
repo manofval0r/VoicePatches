@@ -19,17 +19,19 @@
 
 <body>
     <svg class="gooey-filter" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-        <filter id="goo">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
-            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
-        </filter>
-    </defs>
-</svg>
+        <defs>
+            <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+                    result="goo" />
+                <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+            </filter>
+        </defs>
+    </svg>
     <header class="site-header glass-nav" role="banner">
         <div class="container header-inner">
-            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobileMenu">
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu"
+                aria-expanded="false" aria-controls="mobileMenu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -38,13 +40,13 @@
                 <button id="theme-toggle" class="btn small" aria-pressed="false" aria-label="Toggle dark mode">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
                         <path d="M12 3v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                        stroke-linejoin="round"></path>
+                            stroke-linejoin="round"></path>
                         <path d="M12 19v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                        stroke-linejoin="round"></path>
+                            stroke-linejoin="round"></path>
                         <path d="M4.22 4.22l1.42 1.42" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                        stroke-linejoin="round"></path>
+                            stroke-linejoin="round"></path>
                         <path d="M18.36 18.36l1.42 1.42" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                        stroke-linejoin="round"></path>
+                            stroke-linejoin="round"></path>
                         <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.2" />
                     </svg>
                 </button>
@@ -128,11 +130,12 @@
                             <div style="font-size:1.1rem; font-weight:800;">94% Improved</div>
                         </div>
                     </div>
-                    
+
                     <!-- Hero Testimonial-->
                     <div class="hero-testimonial reveal-on-scroll">
                         <span class="quote-icon">“</span>
-                        <p>Voicepatches Consult has been consistent, delivering top-notch services to both children and adults.</p>
+                        <p>Voicepatches Consult has been consistent, delivering top-notch services to both children and
+                            adults.</p>
                     </div>
 
                     <div class="float-card animate-float-delay"
@@ -231,15 +234,95 @@
             </div>
         </section>
 
+        <section id="conditions" class="conditions section section--muted" aria-labelledby="conditions-heading">
+            <div class="container">
+                <div style="text-align:center;max-width:800px;margin:0 auto;margin-bottom:3rem;"
+                    class="reveal-on-scroll">
+                    <span class="inline-pill">Our Expertise</span>
+                    <h3 id="conditions-heading" style="font-size:2.5rem;margin-top:0.5rem;">Conditions We Treat</h3>
+                    <p class="muted" style="max-width:60ch;margin:0 auto;font-size:1.1rem;">We provide specialized,
+                        empathetic care for a wide range of communication and behavioral challenges across all age
+                        groups.</p>
+                </div>
+
+                <div class="conditions-grid">
+                    <!-- Children's Conditions -->
+                    <div class="condition-category reveal-on-scroll">
+                        <div class="category-header">
+                            <span class="material-symbols-outlined">child_care</span>
+                            <h4>Children's Care</h4>
+                        </div>
+                        <div class="condition-cards">
+                            <div class="condition-card card-small">
+                                <h5>Autism Spectrum</h5>
+                                <p class="small muted">Guided support for social communication and interaction patterns.
+                                </p>
+                                <span class="badge">Pediatric</span>
+                            </div>
+                            <div class="condition-card card-small">
+                                <h5>ADHD Support</h5>
+                                <p class="small muted">Managing attention and focus to improve daily communication.</p>
+                                <span class="badge">Pediatric</span>
+                            </div>
+                            <div class="condition-card card-small">
+                                <h5>Learning Differences</h5>
+                                <p class="small muted">Specialized strategies for Dyslexia, Dyscalculia, and cognitive
+                                    hurdles.</p>
+                                <span class="badge">Pediatric</span>
+                            </div>
+                            <div class="condition-card card-small">
+                                <h5>Developmental Delays</h5>
+                                <p class="small muted">Structured intervention for reaching critical communication
+                                    milestones.</p>
+                                <span class="badge">Pediatric</span>
+                            </div>
+                            <div class="condition-card card-small">
+                                <h5>Cerebral Palsy & Down Syndrome</h5>
+                                <p class="small muted">Compassionate therapy focused on functional speech and motor
+                                    control.</p>
+                                <span class="badge">Pediatric</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Adult & All Ages -->
+                    <div class="condition-category reveal-on-scroll" style="transition-delay: 0.2s;">
+                        <div class="category-header">
+                            <span class="material-symbols-outlined">groups</span>
+                            <h4>Adult & Specialized Care</h4>
+                        </div>
+                        <div class="condition-cards">
+                            <div class="condition-card card-small">
+                                <h5>Aphasia Recovery</h5>
+                                <p class="small muted">Rebuilding language skills after stroke or neurological changes.
+                                </p>
+                                <span class="badge">Adult</span>
+                            </div>
+                            <div class="condition-card card-small">
+                                <h5>Dysarthria & Apraxia</h5>
+                                <p class="small muted">Motor speech therapy for precision, clarity, and control.</p>
+                                <span class="badge">All Ages</span>
+                            </div>
+                            <div class="condition-card card-small">
+                                <h5>Co-morbidity Management</h5>
+                                <p class="small muted">Navigating multiple intersecting communication or behavioral
+                                    challenges.</p>
+                                <span class="badge">All Ages</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="services" class="services section" aria-labelledby="services-heading">
             <div class="container">
                 <div style="text-align:center;max-width:800px;margin:0 auto;margin-bottom:3rem;"
                     class="reveal-on-scroll">
-                    <span class="inline-pill">Holistic Recovery</span>
-                    <h3 id="services-heading" style="font-size:2.5rem;margin-top:0.5rem;">Specialized Therapies</h3>
-                    <p class="muted" style="max-width:60ch;margin:0 auto;font-size:1.1rem;">We combine clinical
-                        expertise with compassionate care to help you find your voice again. Explore our key therapy
-                        areas below.</p>
+                    <span class="inline-pill">How We Work</span>
+                    <h3 id="services-heading" style="font-size:2.5rem;margin-top:0.5rem;">Therapy Techniques</h3>
+                    <p class="muted" style="max-width:60ch;margin:0 auto;font-size:1.1rem;">Explore the evidence-based
+                        methods we use to build neural pathways and strengthen communication skills.</p>
                 </div>
 
                 <div class="services-grid"
@@ -249,30 +332,17 @@
                     <div class="service-card card reveal-on-scroll"
                         style="padding:0; overflow:hidden; border:none; transition-delay:0.1s;">
                         <div class="card-visual"
-                            style="height:200px; background:linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); display:flex; align-items:center; justify-content:center; position:relative;">
-                            <span class="material-symbols-outlined"
-                                style="font-size:6rem; color:rgba(0,0,0,0.05);">psychology</span>
-                            <div class="visual-container" data-animation="object-naming">
-                                <div class="insight-overlay">
-                                    <span class="insight-text">Therapist Tip: Try to pronounce as much as you can, no matter how bad. The A from A-P-P-L-E is a start all the same.</span>
-                                </div>
-    <div class="naming-box">
-        <span class="material-symbols-outlined icon-main" style="font-size: 4rem; color: var(--accent);">apple</span>
-        <div class="typing-text">A-P-P-L-E</div>
-    </div>
-    <div class="canvas-spot" data-for="object-naming" style="position:absolute; inset:0; background:transparent;"></div>
-</div>
-                            <button class="play-btn" data-animation="object-naming"
-                                style="position:absolute; bottom:1rem; right:1rem; width:48px; height:48px; border-radius:50%; padding:0; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
-                                <span class="material-symbols-outlined">play_arrow</span>
-                            </button>
+                            style="height:200px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+                            <img src="./assets/object-naming.png"
+                                alt="Therapist holding flashcards with colorful objects for naming therapy"
+                                loading="lazy" style="width:100%; height:100%; object-fit:contain; padding:1rem;">
                         </div>
                         <div style="padding:1.5rem;">
                             <div style="color:var(--accent); margin-bottom:0.5rem;"><span
                                     class="material-symbols-outlined">psychology_alt</span></div>
                             <h4>Object Naming</h4>
-                            <p class="muted">Practice associating words with objects (e.g., holding an apple and saying
-                                "apple").</p>
+                            <p class="muted">A core exercise for aphasia and vocabulary building, connecting objects
+                                with their spoken names.</p>
                         </div>
                     </div>
 
@@ -280,29 +350,17 @@
                     <div class="service-card card reveal-on-scroll"
                         style="padding:0; overflow:hidden; border:none; transition-delay:0.2s;">
                         <div class="card-visual"
-                            style="height:200px; background:linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); display:flex; align-items:center; justify-content:center; position:relative;">
-                            <span class="material-symbols-outlined"
-                                style="font-size:6rem; color:rgba(0,0,0,0.05);">air</span>
-                            <div class="visual-container" data-animation="breathing">
-                                <div class="insight-overlay">
-        <span class="insight-text">Therapist Tip: Keep shoulders relaxed while the ball expands.</span>
-    </div>
-    <div class="breath-ring"></div>
-    <div class="breath-ball"></div>
-    <p class="breath-label" style="position:absolute; bottom:10px; font-size:0.7rem; font-weight:800; opacity:0.5;">BREATHE</p>
-    <div class="canvas-spot" data-for="breathing" style="position:absolute; inset:0; background:transparent;"></div>
-</div>
-                            <button class="play-btn" data-animation="breathing"
-                                style="position:absolute; bottom:1rem; right:1rem; width:48px; height:48px; border-radius:50%; padding:0; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
-                                <span class="material-symbols-outlined">play_arrow</span>
-                            </button>
+                            style="height:200px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+                            <img src="./assets/breathing-control.png"
+                                alt="Medical illustration of diaphragmatic breathing with visible lungs and breath flow"
+                                loading="lazy" style="width:100%; height:100%; object-fit:contain; padding:1rem;">
                         </div>
                         <div style="padding:1.5rem;">
                             <div style="color:var(--accent); margin-bottom:0.5rem;"><span
                                     class="material-symbols-outlined">lungs</span></div>
-                            <h4>Breathing Techniques</h4>
-                            <p class="muted">Diaphragm and lung control exercises with synchronized inhalation and
-                                exhalation.</p>
+                            <h4>Breathing Control</h4>
+                            <p class="muted">Calming diaphragmatic exercises to manage airflow, reduce anxiety, and
+                                support vocal projection.</p>
                         </div>
                     </div>
 
@@ -310,31 +368,17 @@
                     <div class="service-card card reveal-on-scroll"
                         style="padding:0; overflow:hidden; border:none; transition-delay:0.3s;">
                         <div class="card-visual"
-                            style="height:200px; background:linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); display:flex; align-items:center; justify-content:center; position:relative;">
-                            <span class="material-symbols-outlined"
-                                style="font-size:6rem; color:rgba(0,0,0,0.05);">graphic_eq</span>
-                            <div class="visual-container" data-animation="tongue-twisters">
-                                <div class="insight-overlay">
-                                    <span class="insight-text">Therapist Tip: Start slowly, work on your speed, it takes a while, but it gets all easyy</span>
-                                </div>
-    <div class="word-cloud" style="display:flex; gap:10px;">
-        <span class="jumble">She</span>
-        <span class="jumble">Sells</span>
-        <span class="jumble">Seashells</span>
-    </div>
-    <div class="canvas-spot" data-for="tongue-twisters" style="position:absolute; inset:0; background:transparent;"></div>
-</div>
-                            <button class="play-btn" data-animation="tongue-twisters"
-                                style="position:absolute; bottom:1rem; right:1rem; width:48px; height:48px; border-radius:50%; padding:0; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
-                                <span class="material-symbols-outlined">play_arrow</span>
-                            </button>
+                            style="height:200px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+                            <img src="./assets/articulation-practice.png"
+                                alt="Medical cross-section showing tongue positioning for T, D, and L sounds"
+                                loading="lazy" style="width:100%; height:100%; object-fit:contain; padding:1rem;">
                         </div>
                         <div style="padding:1.5rem;">
                             <div style="color:var(--accent); margin-bottom:0.5rem;"><span
                                     class="material-symbols-outlined">record_voice_over</span></div>
-                            <h4>Tongue Twisters</h4>
-                            <p class="muted">Rapid articulation practice with exaggerated mouth movements for clarity.
-                            </p>
+                            <h4>Articulation Practice</h4>
+                            <p class="muted">Phonetic drills designed to improve the coordination of mouth movements for
+                                clearer speech.</p>
                         </div>
                     </div>
 
@@ -342,61 +386,35 @@
                     <div class="service-card card reveal-on-scroll"
                         style="padding:0; overflow:hidden; border:none; transition-delay:0.4s;">
                         <div class="card-visual"
-                            style="height:200px; background:linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); display:flex; align-items:center; justify-content:center; position:relative;">
-                            <span class="material-symbols-outlined"
-                                style="font-size:6rem; color:rgba(0,0,0,0.05);">mood</span>
-                            <div class="visual-container" data-animation="facial-expressions">
-                                <div class="insight-overlay">
-                                    <span class="insight-text">Therapist Tip: Start with a smile 🙂</span>
-                                </div>
-    <div class="face-box">
-        <!-- We use two icons that toggle when "playing" -->
-        <span class="material-symbols-outlined face-icon" id="face-neutral">sentiment_neutral</span>
-        <span class="material-symbols-outlined face-icon" id="face-happy" style="display:none; color:var(--yellow);">sentiment_very_satisfied</span>
-    </div>
-    <div class="canvas-spot" data-for="facial-expressions" style="position:absolute; inset:0; background:transparent;"></div>
-</div>
-                            <button class="play-btn" data-animation="facial-expressions"
-                                style="position:absolute; bottom:1rem; right:1rem; width:48px; height:48px; border-radius:50%; padding:0; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
-                                <span class="material-symbols-outlined">play_arrow</span>
-                            </button>
+                            style="height:200px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+                            <img src="./assets/expression-therapy.png"
+                                alt="Three faces showing neutral, happy, and concerned expressions for therapy"
+                                loading="lazy" style="width:100%; height:100%; object-fit:contain; padding:1rem;">
                         </div>
                         <div style="padding:1.5rem;">
                             <div style="color:var(--accent); margin-bottom:0.5rem;"><span
                                     class="material-symbols-outlined">face_3</span></div>
-                            <h4>Facial Expressions</h4>
-                            <p class="muted">Emotional articulation therapy involving face shifting while pronouncing
-                                emotive words.</p>
+                            <h4>Expression Therapy</h4>
+                            <p class="muted">Exercises to strengthen facial muscles and improve non-verbal communication
+                                skills.</p>
                         </div>
                     </div>
 
                     <!-- 5. Mirror Therapy -->
                     <div class="service-card card reveal-on-scroll"
                         style="padding:0; overflow:hidden; border:none; transition-delay:0.5s;">
-                        <div class="card-visual" style="height:200px; background:linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); display:flex; align-items:center; justify-content:center; position:relative;">
-                            <span class="material-symbols-outlined" style="font-size:6rem; color:rgba(0,0,0,0.05);">width_full</span>
-                            <div class="visual-container" data-animation="mirror">
-                                <div class="insight-overlay">
-                                    <span class="insight-text">Therapist Tip: Look into the mirror, start and fix. </span>
-                                </div>
-    <div class="mirror-wrap" style="display:flex; gap:40px; align-items:center;">
-        <span class="material-symbols-outlined" style="font-size:3rem; transform: scaleX(-1);">face</span>
-        <div style="width:2px; height:50px; background:var(--accent); opacity:0.3;"></div>
-        <span class="material-symbols-outlined" style="font-size:3rem;">face</span>
-    </div>
-    <div class="canvas-spot" data-for="mirror" style="position:absolute; inset:0; background:transparent;"></div>
-</div>
-                            <button class="play-btn" data-animation="mirror"
-                                style="position:absolute; bottom:1rem; right:1rem; width:48px; height:48px; border-radius:50%; padding:0; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
-                                <span class="material-symbols-outlined">play_arrow</span>
-                            </button>
+                        <div class="card-visual"
+                            style="height:200px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+                            <img src="./assets/mirror-therapy.png"
+                                alt="Person practicing speech therapy with mirror showing mouth positioning"
+                                loading="lazy" style="width:100%; height:100%; object-fit:contain; padding:1rem;">
                         </div>
                         <div style="padding:1.5rem;">
                             <div style="color:var(--accent); margin-bottom:0.5rem;"><span
                                     class="material-symbols-outlined">compare</span></div>
-                            <h4>Mirror Therapy</h4>
-                            <p class="muted">Side-by-side lip and tongue views for visual feedback and self-correction.
-                            </p>
+                            <h4>Visual Feedback</h4>
+                            <p class="muted">Using mirrors to provide direct visual cues for lip and tongue placement
+                                during speech.</p>
                         </div>
                     </div>
 
@@ -404,32 +422,17 @@
                     <div class="service-card card reveal-on-scroll"
                         style="padding:0; overflow:hidden; border:none; transition-delay:0.6s;">
                         <div class="card-visual"
-                            style="height:200px; background:linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); display:flex; align-items:center; justify-content:center; position:relative;">
-                            <span class="material-symbols-outlined"
-                                style="font-size:6rem; color:rgba(0,0,0,0.05);">gesture</span>
-                            <button class="play-btn" data-animation="tongue-exercises"
-                                style="position:absolute; bottom:1rem; right:1rem; width:48px; height:48px; border-radius:50%; padding:0; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
-                                <span class="material-symbols-outlined">play_arrow</span>
-                            </button>
-                            <div class="visual-container" data-animation="tongue-exercises">
-                                <div class="insight-overlay">
-                                    <span class="insight-text">Therapist Tip: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus, exercitationem.</span>
-                                </div>
-    <div class="sound-wave">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar" style="height:30px"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-    </div>
-</div>
+                            style="height:200px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+                            <img src="./assets/oral-motor.png"
+                                alt="Medical illustration of tongue exercises showing circular, side-to-side, and up-down movements"
+                                loading="lazy" style="width:100%; height:100%; object-fit:contain; padding:1rem;">
                         </div>
                         <div style="padding:1.5rem;">
                             <div style="color:var(--accent); margin-bottom:0.5rem;"><span
                                     class="material-symbols-outlined">loop</span></div>
-                            <h4>Tongue Exercises</h4>
-                            <p class="muted">Specific movements like circling or touching teeth to build oral motor
-                                strength.</p>
+                            <h4>Oral Motor Exercises</h4>
+                            <p class="muted">Specific targeted movements to build the strength and range of motion
+                                required for clear speech.</p>
                         </div>
                     </div>
                 </div>
@@ -574,89 +577,100 @@
 
         <section id="contact" class="contact section" aria-labelledby="contact-heading">
             <div class="container contact-grid"></div>
-                <div class="contact-form-wrap">
-                    <h3 id="contact-heading">Let's Find Your Voice Together.</h3>
-                    <p class="muted">Whether you have questions about our therapy plans or just want to say hello, we
-                        are here to listen with patience and understanding.</p>
-                    <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST"
-                        class="contact-form" novalidate>
-                        <input type="hidden" name="_subject" value="New contact from website">
-                        <div class="grid-2">
-                            <div class="form-row"><label for="name">Full Name</label><input id="name" name="name"
-                                    type="text" required aria-required="true"></div>
-                            <div class="form-row"><label for="email">Email Address</label><input id="email" name="email"
-                                    type="email" required aria-required="true"></div>
+            <div class="contact-form-wrap">
+                <h3 id="contact-heading">Let's Find Your Voice Together.</h3>
+                <p class="muted">Whether you have questions about our therapy plans or just want to say hello, we
+                    are here to listen with patience and understanding.</p>
+                <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST" class="contact-form"
+                    novalidate>
+                    <input type="hidden" name="_subject" value="New contact from website">
+                    <div class="grid-2">
+                        <div class="form-row"><label for="name">Full Name</label><input id="name" name="name"
+                                type="text" required aria-required="true"></div>
+                        <div class="form-row"><label for="email">Email Address</label><input id="email" name="email"
+                                type="email" required aria-required="true"></div>
+                    </div>
+                    <div class="form-row"><label for="phone">Phone (Optional)</label><input id="phone" name="phone"
+                            type="tel"></div>
+                    <div class="form-row"><label for="message">How can we help you?</label><textarea id="message"
+                            name="message" rows="4" required aria-required="true"></textarea></div>
+                    <div class="form-row form-actions"><button class="btn cta" type="submit">Start
+                            Conversation</button></div>
+                    <p class="small muted"><span class="material-symbols-outlined">lock</span> Your message is
+                        confidential and HIPAA compliant.</p>
+                    <div id="form-status" aria-live="polite" class="form-status" hidden></div>
+                </form>
+            </div>
+            <aside class="contact-info">
+                <div class="info-cards">
+                    <a href="mailto:hello@speechtherapy.com" class="info-card card">
+                        <div class="icon">✉️</div>
+                        <div>
+                            <p class="muted">Email Us</p>
+                            <p class="strong">hello@speechtherapy.com</p>
                         </div>
-                        <div class="form-row"><label for="phone">Phone (Optional)</label><input id="phone" name="phone"
-                                type="tel"></div>
-                        <div class="form-row"><label for="message">How can we help you?</label><textarea id="message"
-                                name="message" rows="4" required aria-required="true"></textarea></div>
-                        <div class="form-row form-actions"><button class="btn cta" type="submit">Start
-                                Conversation</button></div>
-                        <p class="small muted"><span class="material-symbols-outlined">lock</span> Your message is
-                            confidential and HIPAA compliant.</p>
-                        <div id="form-status" aria-live="polite" class="form-status" hidden></div>
-                    </form>
-                </div>
-                <aside class="contact-info">
-                    <div class="info-cards">
-                        <a href="mailto:hello@speechtherapy.com" class="info-card card">
-                            <div class="icon">✉️</div>
-                            <div>
-                                <p class="muted">Email Us</p>
-                                <p class="strong">hello@speechtherapy.com</p>
-                            </div>
-                        </a>
-                        <a href="tel:+2347037000448" class="info-card card">
-                            <div class="icon">📞</div>
-                            <div>
-                                <p class="muted">Call Us</p>
-                                <p class="strong">+234-XXX-XXXXXX</p>
-                            </div>
-                        </a>
-                        <div class="info-card card">
-                            <div>
-                                <p class="muted">Clinic Hours</p>
-                                <p class="strong">Mon–Fri 9:00AM–6:00PM</p>
-                            </div>
+                    </a>
+                    <a href="tel:+2347037000448" class="info-card card">
+                        <div class="icon">📞</div>
+                        <div>
+                            <p class="muted">Call Us</p>
+                            <p class="strong">+234-XXX-XXXXXX</p>
+                        </div>
+                    </a>
+                    <div class="info-card card">
+                        <div>
+                            <p class="muted">Clinic Hours</p>
+                            <p class="strong">Mon–Fri 9:00AM–6:00PM</p>
                         </div>
                     </div>
-                </aside>
+                </div>
+            </aside>
             </div>
         </section>
         <section id="location" class="location section" aria-labelledby="location-heading">
             <div class="container">
-                <div style="text-align:center;max-width:800px;margin:0 auto; margin-bottom:2rem;" class="reveal-on-scroll">
+                <div style="text-align:center;max-width:800px;margin:0 auto; margin-bottom:2rem;"
+                    class="reveal-on-scroll">
                     <span class="inline-pill">Visit Us</span>
                     <h3 id="location-heading" style="font-size:2rem;margin-top:0.5rem;">Our Main Clinic</h3>
-                    <p class="muted">Stop by our welcoming clinic space in Gbagada, Lagos. We're here to support your journey to clear communication.</p>
+                    <p class="muted">Stop by our welcoming clinic space in Gbagada, Lagos. We're here to support your
+                        journey to clear communication.</p>
                 </div>
 
-                <div class="location-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:stretch;">
+                <div class="location-grid"
+                    style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:stretch;">
                     <div class="map-card reveal-on-scroll">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.7882603438125!2d3.385682774410225!3d6.548397793444602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8d72434a5169%3A0xd2b8d66d7617e8dc!2sDomino&#39;s%20Pizza%20Gbagada!5e0!3m2!1sen!2sng!4v1766845605890!5m2!1sen!2sng"
-                            width="100%" height="100%" style="border:0;border-radius:16px;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade" title="Voice Patches Consulting location map"></iframe>
+                            width="100%" height="100%" style="border:0;border-radius:16px;" allowfullscreen=""
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                            title="Voice Patches Consulting location map"></iframe>
                     </div>
 
-                    <div class="location-info reveal-on-scroll" style="display:flex;flex-direction:column;justify-content:center;">
+                    <div class="location-info reveal-on-scroll"
+                        style="display:flex;flex-direction:column;justify-content:center;">
                         <div class="info-card card" style="margin-bottom:1.5rem;">
-                            <div style="color:var(--accent);margin-bottom:0.75rem;"><span class="material-symbols-outlined">location_on</span></div>
+                            <div style="color:var(--accent);margin-bottom:0.75rem;"><span
+                                    class="material-symbols-outlined">location_on</span></div>
                             <h4 style="margin:0 0 0.5rem 0;">Main Clinic</h4>
                             <p class="muted" style="margin:0;">Voice Patches Consulting<br />Gbagada, Lagos</p>
                         </div>
 
                         <div class="info-card card" style="margin-bottom:1.5rem;">
-                            <div style="color:var(--accent);margin-bottom:0.75rem;"><span class="material-symbols-outlined">schedule</span></div>
+                            <div style="color:var(--accent);margin-bottom:0.75rem;"><span
+                                    class="material-symbols-outlined">schedule</span></div>
                             <h4 style="margin:0 0 0.5rem 0;">Hours</h4>
-                            <p class="muted" style="margin:0;">Mon–Fri: 9:00 AM – 6:00 PM<br />Sat: 10:00 AM – 2:00 PM</p>
+                            <p class="muted" style="margin:0;">Mon–Fri: 9:00 AM – 6:00 PM<br />Sat: 10:00 AM – 2:00 PM
+                            </p>
                         </div>
 
                         <div class="info-card card">
-                            <div style="color:var(--accent);margin-bottom:0.75rem;"><span class="material-symbols-outlined">directions</span></div>
+                            <div style="color:var(--accent);margin-bottom:0.75rem;"><span
+                                    class="material-symbols-outlined">directions</span></div>
                             <h4 style="margin:0 0 0.5rem 0;">Get Directions</h4>
-                            <a class="btn btn-outline" href="https://maps.google.com/?q=Voice+Patches+Consulting+Gbagada+Lagos" target="_blank" style="display:inline-block;margin-top:0.5rem;">Open in Maps</a>
+                            <a class="btn btn-outline"
+                                href="https://maps.google.com/?q=Voice+Patches+Consulting+Gbagada+Lagos" target="_blank"
+                                style="display:inline-block;margin-top:0.5rem;">Open in Maps</a>
                         </div>
                     </div>
                 </div>
@@ -681,11 +695,15 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Voice Patches Consulting</h4>
-                    <p>Professional speech and behavioral therapy services for children and adults with communication disorders.</p>
+                    <p>Professional speech and behavioral therapy services for children and adults with communication
+                        disorders.</p>
                     <div class="footer-social" style="margin-top:0.75rem;">
-                        <a href="#" aria-label="Facebook" title="Facebook"><span class="material-symbols-outlined">facebook</span></a>
-                        <a href="#" aria-label="Twitter" title="Twitter"><span class="material-symbols-outlined">twitter</span></a>
-                        <a href="#" aria-label="LinkedIn" title="LinkedIn"><span class="material-symbols-outlined">linkedin</span></a>
+                        <a href="#" aria-label="Facebook" title="Facebook"><span
+                                class="material-symbols-outlined">facebook</span></a>
+                        <a href="#" aria-label="Twitter" title="Twitter"><span
+                                class="material-symbols-outlined">twitter</span></a>
+                        <a href="#" aria-label="LinkedIn" title="LinkedIn"><span
+                                class="material-symbols-outlined">linkedin</span></a>
                     </div>
                 </div>
                 <div class="footer-section">
