@@ -172,7 +172,7 @@ a:hover {
   .main-nav {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.2rem;
   }
 }
 
@@ -232,29 +232,35 @@ a:hover {
 
 /* Cards & Layouts - Professional Style */
 .section {
-  padding: 6rem 0;
+  padding: 6rem 10px;
   position: relative;
 }
 
 .card {
-  background: var(--surface);
+  background: var(--surface) !important;
   border-radius: var(--radius-sm);
-  padding: 1.5rem;
-  position: relative;
-  border: 1px solid var(--slate-200);
-  box-shadow: none;
+  padding: 1.5rem !important;
+  position: relative !important;
   transition: all 0.3s ease;
   overflow: hidden;
+  margin-right: 15px;
+  border: 1px solid transparent;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .dark .card {
   border-color: var(--slate-200);
-  background: var(--surface);
+  background: var(--surface) !important;
 }
 
 .card:hover {
-  border-color: var(--primary);
-  box-shadow: var(--shadow-xl);
+  border-color: var(--slate--800);
+  box-shadow:
+      0 10px 15px -6px color-mix(in srgb, var(--slate-700), transparent 70%),
+      0 4px 16px -4px color-mix(in srgb, var(--slate-700), transparent 50%);
+  
+    transform: translateY(-4px);
+    /* Adds to the 'depth' feel */
 }
 
 /* Ensure the main content sits below the sticky header */
@@ -387,7 +393,7 @@ a:hover {
 /* Preserve desktop nav; show mobile only below breakpoint */
 @media (max-width: 900px) {
   .brand-row {
-    margin-left: 56px;
+    margin-left: 20px;
     gap: 0.5rem !important;
   }
   .site-title {
@@ -650,8 +656,8 @@ a:hover {
     margin-top: 0.5rem;
     width: 96%;
   }
-  .site-main {
-    padding-top: calc(var(--header-height, 88px) - 8px);
+  #hero{
+    padding: 0 0 0px 20px !important;
   }
 }
 
@@ -1280,6 +1286,7 @@ a:hover {
   /* Visual on top on mobile */
   .header-inner {
     flex-wrap: wrap;
+    padding: 8px;
   }
 
   .header-actions {
